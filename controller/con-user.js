@@ -18,19 +18,23 @@ const login_get = (req, res) => {
     res.render('login', { user: req.session.user || NaN, data: {} })
 }
 const login_post = async (req, res) => {
+    let fail = true
     const user = await User.findOne({username: req.body.username})
-    const verified = await user.verifyPassword(req.body.password)
-    if (user && verified) 
+    if (user)
     {
-        req.session.user = {username: req.body.username}
-        res.redirect(`/profile:${req.body.username}`)
-        return
+        const verified = await user.verifyPassword(req.body.password)
+        if (verified) 
+        {
+            fail = false
+            req.session.user = {username: req.body.username}
+            res.redirect(`/profile:${req.body.username}`)
+        }
     }
-    else
+    if (fail == true)
     {
         data = {}
         func.responseMessage(data, "errormsg", "Username or password incorrect.", "bad")
-        res.render('/login', { user: NaN, data})
+        res.render('login', { user: NaN, data})
     }
 }
 const signup_get = (req, res) => {
@@ -42,6 +46,7 @@ const signup_post = async (req, res) => {
         data = {}
         func.responseMessage(data, "errormsg", "Passwords don't match.", "bad")
         res.render('signup', { user: NaN, data })
+        return
     }
     const occupied = await User.findOne({ username: req.body.username })
     if (!occupied)

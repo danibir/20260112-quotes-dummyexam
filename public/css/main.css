@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'aston script';
+    src: url('../font/Aston\ Script.ttf');
+}
+
 body {
     background-color: white;
 }
@@ -30,10 +35,9 @@ body {
 }
 .maintitle{
     color: black;
-    text-decoration: underline;
     margin-left: 100px;
     font-size: xx-large;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'aston script';
 }
 .supertitle{
     font-size: xx-large;

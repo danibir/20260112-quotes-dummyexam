@@ -1,6 +1,13 @@
 
 <%- include('./partials/header', { title: "Quotations - Login"}) %>
 
-<%- include('./partials/form', { action: "login", actionLabel: "Log in", comfirmPassword: false }) %>
+<div class="center">
+    <div class="segment">
+        <div class="subsegment">
+            <%- include('./partials/form', { action: "login", actionLabel: "Log in", comfirmPassword: false }) %>
+            <%- include('./partials/response', { id: "errormsg", data }) %>
+        </div>
+    </div>
+</div>
 
 <%- include('./partials/footer') %>
