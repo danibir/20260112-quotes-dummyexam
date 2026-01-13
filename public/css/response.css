@@ -1,0 +1,16 @@
+.responsebox{
+    padding: 10px;
+    background-color: slategray;
+}
+.responsegood{
+    background-color: lightgreen;
+}
+.responsewarning{
+    background-color: lightyellow;
+}
+.responsebad{
+    background-color: lightcoral;
+}
+.responsenoDisplay{
+    display: none;
+}
