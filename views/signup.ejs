@@ -1,5 +1,7 @@
 
-<%- include('./partials/header') %>
+<%- include('./partials/header', { title: "Quotations - Sign up" }) %>
 
+<%- include('./partials/form', { action: "sign-up", actionLabel: "Sign up", comfirmPassword: true}) %>
+<%- include('./partials/response', { id: "errormsg", data }) %>
 
 <%- include('./partials/footer') %>

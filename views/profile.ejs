@@ -1,5 +1,11 @@
 
-<%- include('./partials/header') %>
+<%- include('./partials/header', { title: `Quotations - Profile - ${subject.username}`}) %>
 
+<%= subject.username %>
+<% if (subject.username === user.username) {%>
+    <form action="/delete-user" method="post">
+        <button>DELETE USER</button>
+    </form>    
+<%}%>
 
 <%- include('./partials/footer') %>
