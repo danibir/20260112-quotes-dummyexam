@@ -1,0 +1,11 @@
+<div class="quotebox">
+    <p class="quotetext">
+        <%= quote.quote %>
+    </p>
+    <h6>Written by <a href="/profile:<%= quote.creator %>"><%= quote.creator %></a></h6>
+    <% if (user.username == quote.creator) { %>
+        <form action="/quote/delete:<%= quote.quoteId %>" method="post">
+            <button>DELETE</button>
+        </form>
+    <% } %>
+</div>

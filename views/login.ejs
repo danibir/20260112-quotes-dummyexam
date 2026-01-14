@@ -4,8 +4,15 @@
 <div class="center">
     <div class="segment">
         <div class="subsegment">
-            <%- include('./partials/form', { action: "login", actionLabel: "Log in", comfirmPassword: false }) %>
+            <h2 class="supertitle">
+                Log in!
+            </h2>
+            <%- include('./partials/userform', { action: "login", actionLabel: "Log in", comfirmPassword: false }) %>
             <%- include('./partials/response', { id: "errormsg", data }) %>
+            <br>
+            <h5>
+                Don't have an account? <a href="/sign-up">Create one!</a>
+            </h5>
         </div>
     </div>
 </div>

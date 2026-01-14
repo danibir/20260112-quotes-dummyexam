@@ -1,5 +1,8 @@
 const func = require('../js/functions')
 const User = require('../model/mod-user')
+const Quote = require("../model/mod-quote")
+
+
 
 const profile_get = async (req, res) => {
     let username = req.params.user
@@ -72,6 +75,21 @@ const deleteUser_post = async (req, res) =>{
     res.redirect('/log-out')
 }
 
+const userQuotes_get = async (req, res) => {
+    let username = req.params.user
+    username = username.slice(1)
+    const find = await User.findOne({ username })
+    if (find)
+    {
+        const quotes = await Quote.find({ creator: username })
+        res.render('userquotes', { user: req.session.user || NaN, subject: find, quotes })
+    }
+    else
+    {
+        res.redirect(`/profile:${username}`)
+    }
+}
+
 module.exports = {
     profile_get,
     login_get,
@@ -79,5 +97,6 @@ module.exports = {
     signup_get,
     signup_post,
     logout_get,
-    deleteUser_post
+    deleteUser_post,
+    userQuotes_get
 }

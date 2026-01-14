@@ -10,5 +10,6 @@ router.get('/sign-up', controller.signup_get)
 router.post('/sign-up', controller.signup_post)
 router.get('/log-out', controller.logout_get)
 router.post('/delete-user', controller.deleteUser_post)
+router.get('/quotes:user', controller.userQuotes_get)
 
 module.exports = router

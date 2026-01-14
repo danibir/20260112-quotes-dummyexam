@@ -1,11 +1,24 @@
 
 <%- include('./partials/header', { title: `Quotations - Profile - ${subject.username}`}) %>
 
-<%= subject.username %>
-<% if (subject.username === user.username) {%>
-    <form action="/delete-user" method="post">
-        <button>DELETE USER</button>
-    </form>    
-<%}%>
+
+<div class="center">
+    <div class="segment">
+        <div class="subsegment">
+            <h1><%= subject.username %></h1>
+            <a href="/quotes:<%= subject.username %>">quotes</a>
+            <% if (subject.username === user.username) {%>
+                <br>
+                <a href="/quote/create">Create a quote!</a>
+                <br>
+                <br>
+                <br>
+                <form action="/delete-user" method="post">
+                    <button>DELETE USER</button>
+                </form>
+            <%}%>
+        </div>
+    </div>
+</div>  
 
 <%- include('./partials/footer') %>
