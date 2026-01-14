@@ -1,0 +1,20 @@
+<% 
+
+let line = "Create a quote"
+if (Math.floor(Math.random() * 50) == 0)
+    line = "Quote a create"
+
+%>
+
+<%- include('./partials/header', { title: `Quotations - ${line}!`}) %>
+
+<div class="center">
+    <div class="segment">
+        <div class="subsegment">
+            <%- include('./partials/quoteform') %>
+            <%- include('./partials/response', { id: "errormsg", data }) %>
+        </div>
+    </div>
+</div>
+
+<%- include('./partials/footer') %>

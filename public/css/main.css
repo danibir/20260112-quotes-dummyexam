@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'aston script';
+    src: url('../font/Aston\ Script.ttf');
+}
+
 body {
-    background-color: rgb(46, 42, 48);
+    background-color: white;
 }
 .center{
     display: flex;
@@ -12,8 +17,8 @@ body {
     justify-items: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(24, 24, 24);
-    padding: 15px;
+    background-color: gray;
+    padding: 5px;
     border-radius: 20px;
     border-width: 10px;
 }
@@ -22,17 +27,16 @@ body {
     justify-items: center;
     align-items: center;
     flex-direction: column;
-    background-color: rgb(182, 182, 182);
+    background-color: white;
     width: 40vw;
     padding: 20px;
     border-radius: 10px;
     border-width: 10px;
 }
 .maintitle{
-    color: rgb(120, 20, 120);
-    text-decoration: underline;
     margin-left: 100px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: xx-large;
+    font-family: 'aston script';
 }
 .supertitle{
     font-size: xx-large;

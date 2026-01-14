@@ -1,7 +1,8 @@
 
 
+
 const index_get = (req, res) => {
-    res.render('index')
+    res.render('index', { user: req.session.user || NaN })
 }
 
 module.exports = {

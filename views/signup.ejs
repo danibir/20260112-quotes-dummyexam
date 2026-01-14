@@ -1,5 +1,15 @@
 
-<%- include('./partials/header') %>
+<%- include('./partials/header', { title: "Quotations - Sign up" }) %>
 
-
+<div class="center">
+    <div class="segment">
+        <div class="subsegment">
+            <h2 class="supertitle">
+                Sign up!
+            </h2>
+            <%- include('./partials/userform', { action: "sign-up", actionLabel: "Sign up", comfirmPassword: true}) %>
+            <%- include('./partials/response', { id: "errormsg", data }) %>
+        </div>
+    </div>
+</div>
 <%- include('./partials/footer') %>

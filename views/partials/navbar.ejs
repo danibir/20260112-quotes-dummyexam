@@ -1,14 +1,21 @@
+
+
+
 <br>
 <div class="navdiv">
-    <section>
-        <h1 class="maintitle">
-            QUOTATIONS
-        </h1>
+    <section class="navdiv">
+        <a href="/" class="maintitle">
+                QUOTATIONS
+        </a>
     </section>
-    <nav class="navbar">
-        <a class="navitem" href="login">Log in</a>
-        <a class="navitem" href="signup">Sign up</a>
-        <a class="navitem" href="profile">Profile</a>
+    <nav class="navbar navdiv">
+        <% if (!user) { %>
+            <a class="navitem" href="/login">Log in</a>
+            <a class="navitem" href="/sign-up">Sign up</a>
+        <% } else { %>
+            <a class="navitem" href="/log-out">Log out</a>
+            <a class="navitem" href="/profile:<%= user.username %>">Profile</a>
+        <% } %>
     </nav>
 </div>
 <br>

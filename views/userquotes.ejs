@@ -1,5 +1,13 @@
 
-<%- include('./partials/header') %>
+<%- include('./partials/header', { title: `Quotations - ${subject.username}'s quotes`}) %>
 
+<% for (quote of quotes) { %>
+    <%- include('./partials/quote', { quote }) %>
+    <br>
+    <br>
+<% } %>
+<% if (quotes.length == 0) { %>
+    <h2><%= subject.username %> has not made any quotes yet... L!!!</h2>
+<% } %>
 
 <%- include('./partials/footer') %>

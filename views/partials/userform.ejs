@@ -1,0 +1,23 @@
+
+
+
+    <form action="/<%= action %>" method="POST">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <% if (comfirmPassword == true) { %>
+            <br>
+            <div class="form-group">
+                <label for="password2">Confirm password:</label>
+                <input type="password" id="password2" name="password2" required>
+            </div>
+        <% } %>
+        <br>
+        <button type="submit"><%= actionLabel %></button>
+    </form>
