@@ -35,7 +35,7 @@ db.connectDB()
         } else {
             console.log("WARNING! Unable to connect!")
             app.use((req, res)=>{
-                res.render('index')
+                res.render('index', { user: NaN })
             })
         }
     })
