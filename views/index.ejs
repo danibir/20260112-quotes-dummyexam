@@ -20,7 +20,20 @@
         </div>
     </div>
     <br>
+    <a href="/quote/">Read a quote!</a>
     <a href="/quote/create">Create a quote!</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="supertile">Quotes</h1>
+    <br>
+    <% for (quote of quotes) { %>
+        <%- include('./partials/quote', { quote }) %>  
+        <br>
+        <br>  
+    <% }%> 
 </div>
 
 <%- include('./partials/footer') %>

@@ -3,8 +3,20 @@ const Quote = require("../model/mod-quote")
 
 
 
-const scroll_get = (req, res) => {
-    res.render('quotescroll', { user: req.session.user || NaN })
+const scroll_get = async (req, res) => {
+    let quotes = await Quote.find({})
+
+    let currentIndex = quotes.length
+    while (currentIndex != 0) {
+
+        let randomIndex = Math.floor(Math.random() * currentIndex)
+        currentIndex--
+
+        [quotes[currentIndex], quotes[randomIndex]] = [
+        quotes[randomIndex], quotes[currentIndex]]
+    }
+
+    res.render('quotescroll', { user: req.session.user || NaN, quote: quotes[0] })
 }
 const create_get = (req, res) => {
     if (req.session.user)
@@ -13,7 +25,7 @@ const create_get = (req, res) => {
     }
     else
     {
-        res.redirect('/login')
+        res.redirect('/user/login')
     }
 }
 const create_post = async (req, res) => {
@@ -30,7 +42,7 @@ const create_post = async (req, res) => {
             newQuote.creator = req.session.user.username
             newQuote = new Quote(newQuote)
             await newQuote.save()
-            res.redirect(`/profile:${req.session.user.username}`)
+            res.redirect(`/user/profile:${req.session.user.username}`)
         } else {
             data = {}
             func.responseMessage(data, "errormsg", "This is already a quote... try writing something ORIGINAL for a change...", "bad")
@@ -39,7 +51,7 @@ const create_post = async (req, res) => {
     }
     else
     {
-        res.redirect('/login')
+        res.redirect('/user/login')
     }
 }
 const delete_post = async (req, res) => {

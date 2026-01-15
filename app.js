@@ -30,11 +30,11 @@ db.connectDB()
 
 
             app.use('/', router)
-            app.use('/', router_user)
+            app.use('/user', router_user)
             app.use('/quote', router_quote)
         } else {
-            console.log("WARNING! Unable to connect!")
-            app.use((req, res)=>{
+            console.log("WARNING! Unable to connect!") 
+            app.use((req, res)=>{ // doesnt work...?
                 res.render('index', { user: NaN })
             })
         }

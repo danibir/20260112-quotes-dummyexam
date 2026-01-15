@@ -1,6 +1,13 @@
 .quotebox{
-    background-color: black;
-    color: white;
+    background-color: whitesmoke;
+    color: black;
+    padding: 10px;
+    width: 30vw;
+}
+.quotesignature{
+    text-align: end;
+    position: relative;
+    right: 5vw;
 }
 .quotetext{
     font-family: 'aston script';
