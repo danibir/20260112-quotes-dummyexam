@@ -10,11 +10,11 @@
     </section>
     <nav class="navbar navdiv">
         <% if (!user) { %>
-            <a class="navitem" href="/login">Log in</a>
-            <a class="navitem" href="/sign-up">Sign up</a>
+            <a class="navitem" href="/user/login">Log in</a>
+            <a class="navitem" href="/user/sign-up">Sign up</a>
         <% } else { %>
-            <a class="navitem" href="/log-out">Log out</a>
-            <a class="navitem" href="/profile:<%= user.username %>">Profile</a>
+            <a class="navitem" href="/user/log-out">Log out</a>
+            <a class="navitem" href="/user/profile:<%= user.username %>">Profile</a>
         <% } %>
     </nav>
 </div>

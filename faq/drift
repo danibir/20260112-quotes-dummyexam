@@ -1,0 +1,11 @@
+How do I deploy the project? 
+CI/CD pipeline, Docker usage, or manual deployment steps.
+
+What environment variables are required? 
+\scripts\dataconfig.js contains some environment variables, like database URI.
+
+How do I handle user authentication and sessions? 
+If applicable, explain session storage (MongoDB, Redis) or JWT usage.
+
+How do I update dependencies safely? 
+Write "npm audit" into the terminal to check if there is any issues to deal with. A content report should allow you to install safely.

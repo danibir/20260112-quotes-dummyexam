@@ -30,7 +30,7 @@ const login_post = async (req, res) => {
         {
             fail = false
             req.session.user = {username: req.body.username}
-            res.redirect(`/profile:${req.body.username}`)
+            res.redirect(`/user/profile:${req.body.username}`)
         }
     }
     if (fail == true)
@@ -57,7 +57,7 @@ const signup_post = async (req, res) => {
         const newUser = new User(req.body)
         await newUser.save()
         req.session.user = {username: newUser.username}
-        res.redirect(`/profile:${newUser.username}`)
+        res.redirect(`/user/profile:${newUser.username}`)
     }
     else
     {
@@ -71,8 +71,9 @@ const logout_get = (req, res) => {
     res.redirect('/')
 }
 const deleteUser_post = async (req, res) =>{
+    await Quote.deleteMany({ creator: req.session.user.username })
     await User.findOneAndDelete({ username: req.session.user.username })
-    res.redirect('/log-out')
+    res.redirect('/user/log-out')
 }
 
 const userQuotes_get = async (req, res) => {
@@ -86,7 +87,7 @@ const userQuotes_get = async (req, res) => {
     }
     else
     {
-        res.redirect(`/profile:${username}`)
+        res.redirect(`/user/profile:${username}`)
     }
 }
 
